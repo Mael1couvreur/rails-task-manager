@@ -9,9 +9,5 @@
   <p><i class="far fa-circle"></i> <%= @task.title %></p>
 <% end %>
 
-<%= link_to task_path(@task), method: :delete do %>
-  <i class="fas fa-trash-alt"></i>
-<% end %>
-
 <%= link_to "Edit task", edit_task_path %>
 <%= link_to "Back to all tasks", tasks_path %>

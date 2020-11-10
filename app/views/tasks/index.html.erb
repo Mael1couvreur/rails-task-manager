@@ -2,13 +2,18 @@
 
 
 <% @tasks.each do |task| %>
+  <div class="container">
+    <% if task.completed %>
+      </p><i class="far fa-check-circle"></i> <%= link_to task.title, task_path(task)%><p>
+    <% else %>
+      </p><i class="far fa-circle"></i> <%= link_to task.title, task_path(task)%><p>
+    <% end %>
 
-  <% if task.completed %>
-    </p><i class="far fa-check-circle"></i> <%= link_to task.title, task_path(task)%><p>
-  <% else %>
-    </p><i class="far fa-circle"></i> <%= link_to task.title, task_path(task)%><p>
+    <%= link_to task_path(task), method: :delete do %>
+    <i class="fas fa-trash-alt"></i>
+    <% end %>
+  </div>
+
   <% end %>
 
-<% end %>
-
-<%= link_to "Create new task", new_restaurant_path %>
+<%= link_to "Create new task", new_task_path %>
